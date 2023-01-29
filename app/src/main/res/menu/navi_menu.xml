@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+
+        <item android:id="@+id/date_worry"
+            android:title="날짜별 걱정"/>
+
+        <item android:id="@+id/category_worry"
+            android:title="카테고리별 고민"/>
+
+        <item android:id="@+id/setting"
+            android:title="설정"/>
+    </group>
+
+</menu>
