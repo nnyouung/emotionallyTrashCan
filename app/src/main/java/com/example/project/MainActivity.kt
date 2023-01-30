@@ -1,37 +1,40 @@
 package com.example.project
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
+import com.example.project.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private lateinit var context: Context
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)   // xml 파일과 연결.
+        // 뷰바인딩 사용: 네이밍규칙 적용으로 img_navi -> imgNavi
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+
+        // 메인창의 navigation view을 위한 부분
         val adapter = PagerAdapter(supportFragmentManager)
         adapter.addFragment(WorryAdd(), "오늘의 걱정")
         adapter.addFragment(WorryList(), "걱정 리스트")
-        viewpager.adapter = adapter
-        after_login_tablayout.setupWithViewPager(viewpager)
+        binding.viewpager.adapter = adapter
+        binding.afterLoginTablayout.setupWithViewPager(binding.viewpager)
 
-        img_navi.setOnClickListener {   // 네비게이션 뷰 열기.
-            layout_drawer.openDrawer(GravityCompat.START)
+        binding.imgNavi.setOnClickListener {   // 네비게이션 뷰 열기.
+            binding.layoutDrawer.openDrawer(GravityCompat.START)
         }   // () 안은 어느 방향에서 시작할지, 없으면 에러남. (START = left, END = right)
 
-        naviView.setNavigationItemSelectedListener(this)   // 네비게이션 메뉴 아이템에 클릭할 수 있는 속성 부여.
+        binding.naviView.setNavigationItemSelectedListener(this)   // 네비게이션 메뉴 아이템에 클릭할 수 있는 속성 부여.
     }
 
 
-    // 네비게이션뷰를 위한 함수.
+    // navigation view을 위한 함수.
     override fun onNavigationItemSelected(item: MenuItem): Boolean {   // 네비게이션 메뉴 아이템 클릭 시 수행.
         when (item.itemId) {   // 네비게이션 메뉴 아이템 클릭할 때마다 item에 그 메뉴 아이템이 배정됨.
             R.id.date_worry -> {
@@ -44,13 +47,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 val intent = Intent(this, Setting::class.java)
                 startActivity(intent) }
         }
-        layout_drawer.closeDrawers()   // 버튼 클릭 시, 앞선 내용을 수행하면서 네비게이션 뷰를 닫아주는 명령어.
+        binding.layoutDrawer.closeDrawers()   // 버튼 클릭 시, 앞선 내용을 수행하면서 네비게이션 뷰를 닫아주는 명령어.
         return false
     }
 
     override fun onBackPressed() {   // 뒤로 가기 버튼을 눌렀을 때 수행하는 메소드.
-        if (layout_drawer.isDrawerOpen(GravityCompat.START)) {   // 네비게이션 뷰가 켜져 있으면 네비게이션 뷰를 끄기.
-            layout_drawer.closeDrawers()
+        if (binding.layoutDrawer.isDrawerOpen(GravityCompat.START)) {   // 네비게이션 뷰가 켜져 있으면 네비게이션 뷰를 끄기.
+            binding.layoutDrawer.closeDrawers()
         }
         super.onBackPressed()   // 뒤로 가기 버튼 기능 실행.
     }

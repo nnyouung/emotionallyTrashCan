@@ -27,8 +27,8 @@ class AddPage : AppCompatActivity() {
         setContentView(R.layout.activity_addpage)
 
         // UI값 생성
-        calendarView=findViewById(R.id.calendarView)
-        diaryTextView=findViewById(R.id.diaryTextView)
+        calendarView=findViewById(R.id.calendar)
+        diaryTextView=findViewById(R.id.tv_diary)
         saveBtn=findViewById(R.id.saveBtn)
         diaryContent=findViewById(R.id.diaryContent)
         contextEditText=findViewById(R.id.contextEditText)

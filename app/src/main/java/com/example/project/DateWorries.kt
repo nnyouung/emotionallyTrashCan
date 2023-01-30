@@ -1,4 +1,3 @@
 package com.example.project
 
-class DateWorries {
-}
+class DateWorries (val dateWorry: String, val next: Int)
