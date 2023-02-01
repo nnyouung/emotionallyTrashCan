@@ -3,9 +3,9 @@ package com.example.project
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class Setting : AppCompatActivity() {
+class CategoryClick : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_setting)
+        setContentView(R.layout.activity_category_click)
     }
 }

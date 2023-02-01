@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WorryCategory"
-    tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="0dp">
+    tools:context=".CategoryClick">
 
     <TextView
-        android:id="@+id/title_category"
+        android:id="@+id/title_categoryClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="타이틀"
+        android:text="카테고리명"
+        android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,26 +21,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/view_category"
+        android:id="@+id/view_categoryClick"
         android:layout_width="150dp"
         android:layout_height="3dp"
         android:layout_marginTop="8dp"
         android:background="#000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_category" />
+        app:layout_constraintTop_toBottomOf="@+id/title_categoryClick" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_categoryworries"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_diary_category"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
+        android:text="2023/1/23"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_category"
-        app:layout_constraintVertical_bias="0.0" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.126" />
 </androidx.constraintlayout.widget.ConstraintLayout>

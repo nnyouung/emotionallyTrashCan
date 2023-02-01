@@ -4,7 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class PagerAdapter(manager: FragmentManager): FragmentPagerAdapter(manager)
+class AdapterPager(manager: FragmentManager): FragmentPagerAdapter(manager)
+// FragmentStateAdapter로 바꾸는 게 더 안정성 있으나, 돌아가니까 일단은 놔두기...
 {
     private val fragmentList = ArrayList<Fragment>()
     private val titleList = ArrayList<String>()

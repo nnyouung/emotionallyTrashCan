@@ -25,8 +25,8 @@ class WorryDate : AppCompatActivity() {
         setContentView(binding.root)
 
         // expandable recycler view을 위한 부분.
-        binding.rvWorries.apply {
-            adapter = DateWorriesAdapter()
+        binding.rvDateworries.apply {
+            adapter = AdapterDate()
             layoutManager = LinearLayoutManager(context)
             setHasFixedSize(true)
         }
@@ -42,7 +42,7 @@ class WorryDate : AppCompatActivity() {
         // UI값 생성
         calendarView = findViewById(R.id.calendar)
         diaryTextView = findViewById(R.id.tv_diary)
-        worryRecyclerView = findViewById(R.id.rv_worries)
+        worryRecyclerView = findViewById(R.id.rv_dateworries)
 
         worryRecyclerView.visibility = View.INVISIBLE
 

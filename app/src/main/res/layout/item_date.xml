@@ -8,7 +8,7 @@
     android:layout_margin="5dp">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/layout"
+        android:id="@+id/layout_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -24,7 +24,7 @@
             android:textSize="14sp" />
 
         <ImageButton
-            android:id="@+id/imgbtn_next"
+            android:id="@+id/imgbtn_nextD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
@@ -32,15 +32,17 @@
             android:background="@android:color/transparent"
             android:clickable="false"
             android:src="@drawable/next"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:contentDescription="open category"/>
     </com.google.android.material.card.MaterialCardView>
 
     <LinearLayout
-        android:id="@+id/layoutDetail"
+        android:id="@+id/layoutDetail_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:background="#D8D7D7">
     </LinearLayout>
 
 </LinearLayout>

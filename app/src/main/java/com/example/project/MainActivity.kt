@@ -3,7 +3,9 @@ package com.example.project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.GravityCompat
 import com.example.project.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
@@ -11,7 +13,12 @@ import com.google.android.material.navigation.NavigationView
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
-
+    private val TAG = this.javaClass.simpleName // 콜백 인스턴스 생성
+    private val callback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            Log.e(TAG, "뒤로가기 클릭")   // 뒤로 버튼 이벤트 처리
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // 뷰바인딩 사용: 네이밍규칙 적용으로 img_navi -> imgNavi
@@ -20,7 +27,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
         // 메인창의 navigation view을 위한 부분
-        val adapter = PagerAdapter(supportFragmentManager)
+        val adapter = AdapterPager(supportFragmentManager)
         adapter.addFragment(WorryAdd(), "오늘의 걱정")
         adapter.addFragment(WorryList(), "걱정 리스트")
         binding.viewpager.adapter = adapter
@@ -55,6 +62,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (binding.layoutDrawer.isDrawerOpen(GravityCompat.START)) {   // 네비게이션 뷰가 켜져 있으면 네비게이션 뷰를 끄기.
             binding.layoutDrawer.closeDrawers()
         }
-        super.onBackPressed()   // 뒤로 가기 버튼 기능 실행.
+        this.onBackPressedDispatcher.addCallback(this, callback)
     }
 }
